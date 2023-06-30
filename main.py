@@ -1,33 +1,53 @@
+import colorama
 import time
 import random
+from colorama import Fore, Back, Style
 
-A = input("Do you want to enter? (yes/no): ")
-
-if A != "yes":
+lis = "Yy"
+dom = input("Do you want to continue (Y/n)?: ")
+if dom.upper() in lis.upper():
+    print("")
+else:
     quit()
-
+colorama.init()
+print(Fore.CYAN + '''
+█▀█ ▄▀█ █▀ █▀ █░█░█ █▀▀ █▀▀ █▄░█ █▀▀ █▀█ ▄▀█ ▀█▀ █▀█ █▀█
+█▀▀ █▀█ ▄█ ▄█ ▀▄▀▄▀ █▄█ ██▄ █░▀█ ██▄ █▀▄ █▀█ ░█░ █▄█ █▀▄
+''')
 time.sleep(2)
+print(f"{Fore.LIGHTYELLOW_EX}{Style.NORMAL} CREATED BY M404")
 
-while True:
-    print("""
-    █▀█ ▄▀█ █▀ █▀ █░█░█ █▀▀ █▀▀ █▄░█ █▀▀ █▀█ ▄▀█ ▀█▀ █▀█ █▀█
-    █▀▀ █▀█ ▄█ ▄█ ▀▄▀▄▀ █▄█ ██▄ █░▀█ ██▄ █▀▄ █▀█ ░█░ █▄█ █▀▄
-    """)
-    time.sleep(2)
-    print("created by M4NANONYM")
-    time.sleep(2)
+ele = Fore.MAGENTA + """
 
-    length = int(input("How many characters do you want the password to be long (write in number)? "))
-    time.sleep(2)
-    print("creating password...")
+[1] Generate a password
 
-    letters = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM"
-    numbers_symbols = "0123456789;,:._-!()[]{}"
-    P = letters + numbers_symbols
-    time.sleep(2)
-    password = "".join(random.sample(P, length))
-    print("Password: ", password)
-    input("Press enter to generate other password")
+[2] Exit    
+"""
+print(ele)
+cho = input("Choice: ")
+repeat = True
+while (repeat):
+    if cho == "1":
+        lett = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM"
+        nu = "0123456789"
+        sym = "{}_-|!/%=&[]"
+
+        all = lett + nu + sym
+        lun = int(input("Length of the password: "))
+        time.sleep(2)
+        passw = "".join(random.sample(all,lun))
+        print("Password: ", passw)
+        time.sleep(2)
+    elif cho == "2":
+        quit()
+    else:
+        quit()
 
 
-
+    poss_ris = "Yy"
+    ans = input("Do you want to generate another password (Y/n)?: ")
+    if ans.upper() in poss_ris.upper():
+        print("")
+    else:
+        print("bye!!!")
+        repeat = False
